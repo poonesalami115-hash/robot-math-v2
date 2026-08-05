@@ -127,6 +127,8 @@ document.getElementById("coinSound");
 const winSound =
 document.getElementById("winSound");
 
+const robotWake =
+new Audio("robot.png.mp3");
 /* موسیقی پس‌زمینه */
 
 const backgroundMusic =
@@ -252,12 +254,11 @@ if (percent >= 100) {
     clearInterval(speechTimer);    
     clearInterval(loadingTimer);    
 
+    robotWake.currentTime = 0;
+    robotWake.play();
+
     introPage.classList.add("hidden");    
     loginPage.classList.remove("hidden");    
-
-}
-
-}, 50);
 
 }
 
