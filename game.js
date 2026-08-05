@@ -225,6 +225,7 @@ startIntro();
 ========================================== */
 
 function startIntro() {
+function startIntro() {
 
 let percent = 0;
 let messageIndex = 0;
@@ -243,6 +244,7 @@ if (messageIndex < introMessages.length) {
 
 }, 1500);
 
+
 const loadingTimer = setInterval(function () {
 
 percent++;    
@@ -254,17 +256,26 @@ if (percent >= 100) {
     clearInterval(speechTimer);    
     clearInterval(loadingTimer);    
 
-    robotWake.currentTime = 0;
-    robotWake.play();
 
     introPage.classList.add("hidden");    
     loginPage.classList.remove("hidden");    
-    }
 
-}, 50);
+
+    setTimeout(function () {
+
+        robotWake.currentTime = 0;
+
+        robotWake.play().catch(()=>{});
+
+    }, 300);
+
 
 }
 
+}, 50);
+
+
+}
 /* ==========================================
 ورود دانش آموز
 ========================================== */
