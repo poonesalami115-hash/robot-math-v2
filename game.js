@@ -225,7 +225,6 @@ startIntro();
 ========================================== */
 
 function startIntro() {
-function startIntro() {
 
 let percent = 0;
 let messageIndex = 0;
