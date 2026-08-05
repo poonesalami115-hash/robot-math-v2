@@ -259,6 +259,9 @@ if (percent >= 100) {
 
     introPage.classList.add("hidden");    
     loginPage.classList.remove("hidden");    
+    }
+
+}, 50);
 
 }
 
