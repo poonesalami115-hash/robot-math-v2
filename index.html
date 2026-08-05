@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<meta name="theme-color"
+content="#2B7CFF">
+
+<title>
+
+ربات ریاضی | کلاس ششم
+
+</title>
+
+<link rel="stylesheet"
+href="style.css">
+
+</head>
+
+<body>
+
+<!-- ===========================
+صداهای بازی
+=========================== -->
+
+<audio id="correctSound" preload="auto">
+    <source src="correct.mp3" type="audio/mpeg">
+</audio>
+
+<audio id="wrongSound" preload="auto">
+    <source src="wrong.mp3" type="audio/mpeg">
+</audio>
+
+<audio id="coinSound" preload="auto">
+    <source src="coin.mp3" type="audio/mpeg">
+</audio>
+
+<audio id="winSound" preload="auto">
+    <source src="win.mp3" type="audio/mpeg">
+</audio>
+
+<!-- ===========================
+صفحه معرفی
+=========================== -->
+
+<section id="introPage">
+
+<img
+id="introBackground"
+src="background.png"
+alt="Background">
+
+<div id="introOverlay"></div>
+
+<div id="introContainer">
+
+<img
+id="introRobot"
+src="robot-sleep.png"
+alt="Robot">
+
+<div id="introSpeech">
+
+سلام دوست من 🌸
+
+</div>
+
+<div id="loadingContainer">
+
+<div id="loadingBar">
+
+<div id="loadingFill"></div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- ===========================
+صفحه ورود
+=========================== -->
+
+<section
+id="loginPage"
+class="hidden">
+
+<img
+id="loginBackground"
+src="background.png"
+alt="Background">
+
+<div id="loginOverlay"></div>
+
+<div id="loginContainer">
+
+<img
+id="loginRobot"
+src="robot.png"
+alt="Robot">
+
+<input
+type="text"
+id="studentName"
+autocomplete="off"
+placeholder="نام و نام خانوادگی">
+
+<input
+type="tel"
+id="studentCode"
+maxlength="10"
+inputmode="numeric"
+autocomplete="off"
+placeholder="کد ملی">
+
+<div id="loginError"></div>
+
+<h2 id="gameTitle">
+
+اعداد زوج و فرد
+
+</h2>
+
+<button id="startBtn">
+
+شروع بازی
+
+</button>
+
+</div>
+
+</section>
+<!-- ========================================= -->
+<!-- صفحه اصلی بازی -->
+<!-- ========================================= -->
+
+<section id="gamePage" class="hidden">
+
+    <img
+        id="gameBackground"
+        src="background.png"
+        alt="Background">
+
+    <div id="gameOverlay"></div>
+
+    <!-- نوار وضعیت -->
+
+    <header id="topBar">
+
+        <div class="statusItem">
+
+            <img
+                class="statusIcon"
+                src="battery.png"
+                alt="Battery">
+
+            <span id="batteryValue">0%</span>
+
+        </div>
+
+        <div class="statusItem">
+
+            <img
+                class="statusIcon"
+                src="star.png"
+                alt="Star">
+
+            <span id="starValue">0</span>
+
+        </div>
+
+        <div class="statusItem">
+
+            <img
+                class="statusIcon"
+                src="coin.png"
+                alt="Coin">
+
+            <span id="coinValue">0</span>
+
+        </div>
+
+    </header>
+
+    <!-- تایمر -->
+
+    <div id="timerBox">
+
+        ⏰
+
+        <span id="timerText">
+
+            40:00
+
+        </span>
+
+    </div>
+
+    <!-- ربات -->
+
+    <section id="robotArea">
+
+        <img
+            id="robot"
+            src="robot.png"
+            alt="Robot">
+
+    </section>
+
+    <!-- متن ربات -->
+
+    <section id="speechArea">
+
+        <div id="speechBox">
+
+            آماده‌ای؟
+
+        </div>
+
+    </section>
+
+    <!-- باتری -->
+
+    <section id="batteryBar">
+
+        <div id="batteryFill"></div>
+
+    </section>
+
+    <!-- سؤال -->
+
+    <div id="questionArea">
+
+        <div id="questionBox"></div>
+
+    </div>
+
+    <!-- گزینه‌ها -->
+
+<div id="answersArea">
+
+        <button class="answerBtn" id="answer1"></button>
+
+        <button class="answerBtn" id="answer2"></button>
+
+        <button class="answerBtn" id="answer3"></button>
+
+        <button class="answerBtn" id="answer4"></button>
+
+    </div>
+
+</section>
+<!-- ========================================= -->
+<!-- صفحه پایان بازی -->
+<!-- ========================================= -->
+
+<section id="finishPage" class="hidden">
+
+    <img
+        id="finishBackground"
+        src="background.png"
+        alt="Background">
+
+    <div id="finishOverlay"></div>
+
+    <div id="finishContainer">
+
+        <img
+            id="finishRobot"
+            src="robot-winner.png"
+            alt="Winner Robot">
+
+        <h1>
+
+            مأموریت با موفقیت انجام شد 🎉
+
+        </h1>
+
+        <div id="resultCard">
+
+            <p>👤 نام:
+                <span id="resultName"></span>
+            </p>
+
+            <p>🆔 کد ملی:
+                <span id="resultCode"></span>
+            </p>
+
+            <p>👩‍🏫 آموزگار:
+                پونه سلامی
+            </p>
+
+            <p>📚 پایه:
+                کلاس ششم
+            </p>
+
+            <p>📅 تاریخ:
+                <span id="resultDate"></span>
+            </p>
+
+            <p>🕒 ساعت:
+                <span id="resultTime"></span>
+            </p>
+
+            <p>✅ پاسخ صحیح:
+                <span id="correctCount"></span>
+            </p>
+
+            <p>❌ پاسخ نادرست:
+                <span id="wrongCount"></span>
+            </p>
+
+            <p>🎯 امتیاز:
+                <span id="resultScore"></span>
+            </p>
+
+            <p>📈 درصد موفقیت:
+                <span id="resultPercent"></span>
+            </p>
+
+            <p>🔋 باتری:
+                <span id="resultBattery"></span>
+            </p>
+
+            <p>⭐ ستاره:
+                <span id="resultStars"></span>
+            </p>
+
+            <p>🪙 سکه:
+                <span id="resultCoins"></span>
+            </p>
+
+        </div>
+
+        <div id="medalArea">
+
+            <img
+                id="resultMedal"
+                src="medal-bronze.png"
+                alt="Medal">
+
+        </div>
+
+        <div id="finishMessage">
+
+            آفرین 🌸
+
+        </div>
+
+        <button id="screenShotBtn">
+
+            📸 گرفتن اسکرین‌شات
+
+        </button>
+
+        <button id="playAgainBtn">
+
+            🔄 بازی دوباره
+
+        </button>
+
+    </div>
+
+</section>
+
+<script src="questions.js"></script>
+<script src="game.js"></script>
+
+</body>
+</html>
