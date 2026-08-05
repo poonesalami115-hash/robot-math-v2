@@ -259,20 +259,9 @@ if (percent >= 100) {
     introPage.classList.add("hidden");    
     loginPage.classList.remove("hidden");    
 
-
-    setTimeout(function () {
-
-        robotWake.currentTime = 0;
-
-        robotWake.play().catch(()=>{});
-
-    }, 300);
-
-
 }
 
 }, 50);
-
 
 }
 /* ==========================================
