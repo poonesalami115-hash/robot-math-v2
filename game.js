@@ -129,6 +129,7 @@ document.getElementById("winSound");
 
 const robotWake =
 new Audio("robot.png.mp3");
+
 /* موسیقی پس‌زمینه */
 
 const backgroundMusic =
@@ -258,7 +259,7 @@ function startIntro() {
 
 
             robotWake.currentTime = 0;
-            robotWake.play();
+            robotWake.play().catch(()=>{});
 
 
             introPage.classList.add("hidden");
@@ -269,6 +270,7 @@ function startIntro() {
     }, 50);
 
 }
+
 /* ==========================================
 ورود دانش آموز
 ========================================== */
