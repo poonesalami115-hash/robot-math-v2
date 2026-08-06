@@ -226,42 +226,47 @@ startIntro();
 
 function startIntro() {
 
-let percent = 0;
-let messageIndex = 0;
+    let percent = 0;
+    let messageIndex = 0;
 
-introSpeech.innerHTML = introMessages[0];
+    introSpeech.innerHTML = introMessages[0];
 
-const speechTimer = setInterval(function () {
+    const speechTimer = setInterval(function () {
 
-messageIndex++;    
+        messageIndex++;
 
-if (messageIndex < introMessages.length) {    
+        if (messageIndex < introMessages.length) {
 
-    introSpeech.innerHTML = introMessages[messageIndex];    
+            introSpeech.innerHTML = introMessages[messageIndex];
 
-}
+        }
 
-}, 1500);
-
-
-const loadingTimer = setInterval(function () {
-
-percent++;    
-
-loadingFill.style.width = percent + "%";    
-
-if (percent >= 100) {    
-
-    clearInterval(speechTimer);    
-    clearInterval(loadingTimer);    
+    }, 1500);
 
 
-    introPage.classList.add("hidden");    
-    loginPage.classList.remove("hidden");    
+    const loadingTimer = setInterval(function () {
 
-}
+        percent++;
 
-}, 50);
+        loadingFill.style.width = percent + "%";
+
+
+        if (percent >= 100) {
+
+            clearInterval(speechTimer);
+            clearInterval(loadingTimer);
+
+
+            robotWake.currentTime = 0;
+            robotWake.play();
+
+
+            introPage.classList.add("hidden");
+            loginPage.classList.remove("hidden");
+
+        }
+
+    }, 50);
 
 }
 /* ==========================================
