@@ -395,7 +395,7 @@ function showQuestion(){
     answer3.style.color = "white";
     answer4.style.color = "white";
 
-    robot.src = "robot.png";
+    robot.src = "robot-thinking.png";
 }
 /* ==========================================
 بخش ۴
