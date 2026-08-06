@@ -457,10 +457,10 @@ batterySound.play();
 starSound.currentTime = 0;    
 starSound.play();    
 
-robotCorrect.currentTime = 0;    
-robotCorrect.play();    
+robotCorrect.currentTime = 0;
+robotCorrect.play();
 
-speechBox.innerHTML = "آفرین 🌸";    
+robot.src = "robot-happy.png";   
 
 setTimeout(function(){
 
